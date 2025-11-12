@@ -1,10 +1,12 @@
 "use client"
 
 import Link from "next/link"
-import Image from "next/image"
 import type { MouseEvent } from "react"
 import { useEffect, useRef } from "react"
 import { Music2, Baby, Sprout, HeartHandshake } from "lucide-react"
+import { AnimatedImage } from "@/components/animations/animated-image"
+import { AnimatedHeading } from "@/components/animations/animated-heading"
+import { AnimatedText } from "@/components/animations/animated-text"
 
 const pillars = [
   { icon: Music2, label: "Arts & Culture" },
@@ -60,24 +62,24 @@ export function WhatWeStandFor() {
         <div className="absolute inset-0 bg-[radial-gradient(1000px_480px_at_90%_-10%,theme(colors.slate.300/18),transparent)] dark:bg-[radial-gradient(1000px_480px_at_90%_-10%,theme(colors.slate.700/12),transparent)]" />
       </div>
 
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 py-24 sm:py-28">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 py-12 sm:py-20 lg:py-28">
         {/* Title */}
-        <div className="mb-14 flex items-end gap-6">
-          <h2 data-reveal className="text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
-            <span className="text-center">What we stand for</span>
-          </h2>
+        <div className="mb-8 sm:mb-12 lg:mb-14 flex items-end gap-4 sm:gap-6">
+          <AnimatedHeading as="h2" className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-semibold tracking-tight">
+            <span>What we stand for</span>
+          </AnimatedHeading>
           <div className="hidden md:block h-px flex-1 bg-foreground/15" />
         </div>
 
         {/* Ring layout */}
-        <div className="relative mx-auto aspect-[4/3] w-full max-w-5xl">
+        <div className="relative mx-auto aspect-[4/3] w-full max-w-5xl min-h-[300px] sm:min-h-[400px]">
           {/* Center media card */}
           <div
             data-reveal
-            className="absolute left-1/2 top-1/2 z-10 w-[78%] max-w-[720px] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-3xl border border-white/10 bg-white/5 shadow-[inset_0_1px_0_0_rgba(255,255,255,.06)] backdrop-blur supports-[backdrop-filter]:backdrop-blur-md"
+            className="absolute left-1/2 top-1/2 z-10 w-[90%] sm:w-[78%] max-w-[720px] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-2xl sm:rounded-3xl border border-white/10 bg-white/5 shadow-[inset_0_1px_0_0_rgba(255,255,255,.06)] backdrop-blur supports-[backdrop-filter]:backdrop-blur-md"
           >
             <div className="relative aspect-[16/10]">
-              <Image
+              <AnimatedImage
                 src="/roxy-home.jpeg"
                 alt="ROXY community"
                 fill
@@ -130,8 +132,8 @@ export function WhatWeStandFor() {
               <div key={i} data-reveal style={{ ["--i" as any]: i } as React.CSSProperties}>
                 <div onMouseMove={setPointerVars} className="group relative overflow-hidden rounded-xl border border-white/10 bg-white/5 p-4 shadow-[inset_0_1px_0_0_rgba(255,255,255,.06)]">
                   <Glow />
-                  <p.icon className="mb-2 h-5 w-5 text-foreground/90" />
-                  <p className="text-sm sm:text-base lg:text-lg font-medium text-foreground/90">{p.label}</p>
+                  <p.icon className="mb-2 h-7 w-7 text-foreground/90" />
+                  <p className="text-base sm:text-lg lg:text-xl font-medium text-foreground/90">{p.label}</p>
                 </div>
               </div>
             ))}
@@ -139,15 +141,19 @@ export function WhatWeStandFor() {
         </div>
 
         {/* Copy & link */}
-        <div className="mx-auto mt-12 max-w-3xl">
-          <p data-reveal className="text-lg lg:text-xl text-muted-foreground">
-            We operate as a charitable, selfless association; funds are used only for the purposes in our bylaws.
-          </p>
-          <div className="mt-4">
-            <Link href="#" className="text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground">
-              Vereinssatzung Roxy
-            </Link>
-          </div>
+        <div className="mx-auto mt-8 sm:mt-12 max-w-3xl">
+          <AnimatedText delay={0.2}>
+            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground">
+              We operate as a charitable, selfless association; funds are used only for the purposes in our bylaws.
+            </p>
+          </AnimatedText>
+          <AnimatedText delay={0.4}>
+            <div className="mt-4">
+              <Link href="#" className="text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground">
+                Vereinssatzung Roxy
+              </Link>
+            </div>
+          </AnimatedText>
         </div>
       </div>
 
@@ -190,8 +196,8 @@ function PointCard({
       >
         <Glow />
         <div className="flex items-center gap-3">
-          <Icon className="h-5 w-5 text-foreground/90" />
-          <p className="text-sm md:text-base lg:text-lg font-medium text-foreground/90">{label}</p>
+          <Icon className="h-7 w-7 md:h-8 md:w-8 text-foreground/90" />
+          <p className="text-base md:text-lg lg:text-xl font-medium text-foreground/90">{label}</p>
         </div>
       </div>
     </div>

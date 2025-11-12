@@ -1,8 +1,10 @@
 "use client"
 
 import Link from "next/link"
-import Image from "next/image"
 import { useEffect, useRef } from "react"
+import { AnimatedImage } from "@/components/animations/animated-image"
+import { AnimatedHeading } from "@/components/animations/animated-heading"
+import { AnimatedText } from "@/components/animations/animated-text"
 
 export function WhatsHappening() {
   const rootRef = useRef<HTMLElement | null>(null)
@@ -35,13 +37,13 @@ export function WhatsHappening() {
   }, [])
 
   return (
-    <section ref={rootRef} className="relative bg-secondary border-t border-border overflow-hidden border-t border-border bg-background py-24 sm:py-32">
+    <section ref={rootRef} className="relative bg-secondary border-t border-border overflow-hidden border-t border-border bg-background py-12 sm:py-20 lg:py-32">
       {/* Background image with overlay */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute inset-0">
-          <Image
-            src="/community-event-gathering.jpg"
-            alt="Community event gathering"
+          <AnimatedImage
+            src="/community-celebration-outdoor.jpg"
+            alt="Community celebration outdoor"
             fill
             className="object-cover"
             priority={false}
@@ -52,43 +54,39 @@ export function WhatsHappening() {
 
       <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6">
         {/* Title */}
-        <div className="mb-14 flex items-end gap-6">
-          <h2 data-reveal className="text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
+        <div className="mb-8 sm:mb-12 lg:mb-14 flex items-end gap-4 sm:gap-6">
+          <AnimatedHeading as="h2" className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-semibold tracking-tight">
             <span>What's happening here</span>
-          </h2>
+          </AnimatedHeading>
           <div className="hidden md:block h-px flex-1 bg-foreground/15" />
         </div>
 
         {/* Content with image card */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
           {/* Text content */}
           <div>
-            <p
-              data-reveal
-              className="text-lg lg:text-xl text-muted-foreground leading-relaxed mb-6"
-              style={{ ["--i" as any]: 1 } as React.CSSProperties}
-            >
-              From art & music events, talks & discussions, and learning circles, to youth-led art and sport projects
-              and inclusive activities with disadvantaged neighbors.
-            </p>
-            <div className="mt-6" data-reveal style={{ ["--i" as any]: 2 } as React.CSSProperties}>
-              <Link
-                href="#"
-                className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-elegant underline underline-offset-4"
-              >
-                Vereinssatzung Roxy
-              </Link>
-            </div>
+            <AnimatedText delay={0.2}>
+              <p className="text-base sm:text-lg lg:text-xl text-muted-foreground leading-relaxed mb-4 sm:mb-6">
+                From art & music events, talks & discussions, and learning circles, to youth-led art and sport projects
+                and inclusive activities with disadvantaged neighbors.
+              </p>
+            </AnimatedText>
+            <AnimatedText delay={0.4}>
+              <div className="mt-6">
+                <Link
+                  href="#"
+                  className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-elegant underline underline-offset-4"
+                >
+                  Vereinssatzung Roxy
+                </Link>
+              </div>
+            </AnimatedText>
           </div>
 
           {/* Featured image card */}
-          <div
-            data-reveal
-            className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-white/10 bg-white/5 shadow-[inset_0_1px_0_0_rgba(255,255,255,.06)] backdrop-blur supports-[backdrop-filter]:backdrop-blur-md"
-            style={{ ["--i" as any]: 1 } as React.CSSProperties}
-          >
-            <Image
-              src="/community-event-gathering.jpg"
+          <div className="relative aspect-[4/3] overflow-hidden rounded-2xl sm:rounded-3xl border border-white/10 bg-white/5 shadow-[inset_0_1px_0_0_rgba(255,255,255,.06)] backdrop-blur supports-[backdrop-filter]:backdrop-blur-md">
+            <AnimatedImage
+              src="/community-celebration-outdoor.jpg"
               alt="Community event gathering with various activities"
               fill
               className="object-cover transition-transform duration-700 hover:scale-105"

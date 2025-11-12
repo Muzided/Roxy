@@ -9,10 +9,10 @@ interface GetInvolvedProps {
 
 export function GetInvolved({ onOpenModal }: GetInvolvedProps) {
   return (
-    <section className="py-24 px-4 sm:px-6 bg-secondary border-t border-border">
+    <section className="py-12 sm:py-20 lg:py-24 px-4 sm:px-6 bg-secondary border-t border-border">
       <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-4xl sm:text-5xl font-bold tracking-tight mb-6">Get involved</h2>
-        <div className="flex flex-col sm:flex-row justify-center gap-3">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-4 sm:mb-6">Get involved</h2>
+        <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-3">
           <Button size="lg" className="bg-foreground text-primary-foreground hover:bg-foreground/90 transition-elegant" onClick={onOpenModal}>
             Volunteer
           </Button>
@@ -23,7 +23,7 @@ export function GetInvolved({ onOpenModal }: GetInvolvedProps) {
             Become a member
           </Button>
         </div>
-        <p className="text-sm text-muted-foreground leading-relaxed mt-6 max-w-2xl mx-auto">
+        <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mt-4 sm:mt-6 max-w-2xl mx-auto px-2 sm:px-0">
           Supporting memberships welcome; supporters can attend and submit motions (no vote); honorary members are
           fee-exempt and have voting rights.
         </p>

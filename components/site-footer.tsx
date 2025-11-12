@@ -4,8 +4,8 @@ import { Separator } from "@/components/ui/separator"
 export function SiteFooter() {
   return (
     <footer className="border-t border-border bg-secondary">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 py-20">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-16 mb-16">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-16 lg:py-20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 lg:gap-16 mb-8 sm:mb-12 lg:mb-16">
           {/* About */}
           <div>
             <h3 className="font-bold text-sm uppercase tracking-widest text-foreground mb-4">About</h3>
@@ -52,7 +52,7 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <Separator className="my-12" />
+        <Separator className="my-8 sm:my-12" />
 
         {/* Bottom */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-muted-foreground">
